@@ -22,7 +22,7 @@ public class Tienda {
      * @param args
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated method stub HOLA
         Scanner ScannerMenu = new Scanner(System.in);
         Scanner ScannerInt = new Scanner(System.in);
         Scanner ScannerString = new Scanner(System.in);
