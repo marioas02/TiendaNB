@@ -6,12 +6,14 @@
 package com.mycompany.tienda;
 
 /**
- *
+ * Clase que hereda de Articulo que nos sirve para definir de Articulos de tipo Electrodomestico.
  * @author MarioAguirre
+ * @version 1.0
  */
 public class Electrodomestico extends Articulo {
     private String gama;
     private char coste_energetico;
+    
     
     
     
