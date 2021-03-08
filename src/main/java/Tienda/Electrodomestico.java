@@ -6,30 +6,34 @@
 package Tienda;
 
 /**
- * Clase que hereda de Articulo que nos sirve para definir de Articulos de tipo Electrodomestico.
+ * Clase que hereda de Articulo que nos sirve para definir de Articulos de tipo
+ * Electrodomestico.
+ *
  * @author MarioAguirre
  * @version 1.0
  */
 public class Electrodomestico extends Articulo {
+
     private String gama;
-    private String clasificacionEnergetica;
-    
+    private ClaseE clasificacionEnergetica;
+
     /**
-     * 
+     *
      */
     public Electrodomestico() {
-        
+
     }
+
     /**
-     * 
+     *
      * @param gama
      * @param clasificacionEnergetica
      * @param codigo
      * @param nombre
      * @param precio
-     * @param stock 
+     * @param stock
      */
-    public Electrodomestico(String gama, String clasificacionEnergetica, String codigo, String nombre, float precio, int stock) {
+    public Electrodomestico(String gama, ClaseE clasificacionEnergetica, String codigo, String nombre, float precio, int stock) {
         super(codigo, nombre, precio, stock);
         this.gama = gama;
         this.clasificacionEnergetica = clasificacionEnergetica;
@@ -52,17 +56,19 @@ public class Electrodomestico extends Articulo {
     /**
      * @return the clasificacionEnergetica
      */
-    public String getClasificacionEnergetica() {
+    public ClaseE getClasificacionEnergetica() {
         return clasificacionEnergetica;
     }
 
     /**
      * @param clasificacionEnergetica the clasificacionEnergetica to set
      */
-    public void setClasificacionEnergetica(String clasificacionEnergetica) {
+    public void setClasificacionEnergetica(ClaseE clasificacionEnergetica) {
         this.clasificacionEnergetica = clasificacionEnergetica;
-    }    
-    
-    
-    
+    }
+s
+    @Override
+    public String toString() {
+        return super.toString() + "Gama: " + getGama() + "Clase Electrodomestica: " + getClasificacionEnergetica();
+    }
 }
