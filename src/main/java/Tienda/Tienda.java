@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.tienda;
+package Tienda;
 
 /**
  *
@@ -27,16 +27,16 @@ public class Tienda {
         Scanner ScannerInt = new Scanner(System.in);
         Scanner ScannerString = new Scanner(System.in);
 
-        int opcion = 0;
+        int menuopcion = 0;
 
         ArrayList<Articulo> catalogo = new ArrayList<Articulo>();
         inicializarCatalogo(catalogo);
         Carrito cesta = new Carrito();
 
         do {
-            opcion = menu(ScannerMenu);
+            menuopcion = menu(ScannerMenu);
 
-            switch (opcion) {
+            switch (menuopcion) {
 
                 case 0:
                     System.out.println("Has escogido la opción 0");
@@ -61,7 +61,7 @@ public class Tienda {
                     break;
 
             }
-        } while (opcion != 0);
+        } while (menuopcion != 0);
 
         ScannerInt.close();
         ScannerString.close();

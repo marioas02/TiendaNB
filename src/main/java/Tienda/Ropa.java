@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.tienda;
+package Tienda;
 
 /**
  * Clase que hereda Articulo que nos sirve para definir articulos de tipo ropa de los que nos interesa tambien el color y la talla.
