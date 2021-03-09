@@ -66,9 +66,9 @@ public class Electrodomestico extends Articulo {
     public void setClasificacionEnergetica(ClaseE clasificacionEnergetica) {
         this.clasificacionEnergetica = clasificacionEnergetica;
     }
-s
+
     @Override
     public String toString() {
-        return super.toString() + "Gama: " + getGama() + "Clase Electrodomestica: " + getClasificacionEnergetica();
+        return super.toString() + "Gama: " + getGama() + "\nClase Electrodomestica: " + getClasificacionEnergetica() + "\n";
     }
 }

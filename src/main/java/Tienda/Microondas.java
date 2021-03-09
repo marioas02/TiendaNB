@@ -72,7 +72,7 @@ public class Microondas extends Electrodomestico {
 
     @Override
     public String toString() {
-        return super.toString() + "Marca: " + getMarca() + "Modelo: " + getModelo() + "Potencia: " + getPotencia();
+        return super.toString() + "Marca: " + getMarca() + "\nModelo: " + getModelo() + "\nPotencia: " + getPotencia() + " W\n";
     }
 
 }
