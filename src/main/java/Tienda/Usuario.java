@@ -49,38 +49,37 @@ public class Usuario {
         this.mail = mail;
     }
     
-    private boolean comprobacionNombre(String nombre){
-        if(nombre.length()>6){
+    public static boolean comprobacionNombre(String nombre){
+        if(nombre.length()>=6){
             return true;
         }else{
             return false;
         }
     }
-    private boolean comprobacionPassword(String password){
-        if(password.length()>8){
-            for(int i=0; i<password.length(); i++){
-                if(Character.isUpperCase(password.charAt(i))){
-                    return true;
-                }
+    public static boolean comprobacionPassword(String password){
+        boolean comprueba;
+        if(password.length()>=8){
+            if(password.matches(".*[A-Z].*")){
+                comprueba = true;
+            }else{
+                comprueba = false;
             }
         }else{
-            return false;
+            comprueba = false;
         }
-        return false;
+        return comprueba;
     }
-    private boolean comprobacionEmail(String mail){
-        for(int i=0; i<mail.length(); i++){
-            if(mail.length(i)!='@'){
-                return false;
-            } else {
-                return true;
-            }
+    
+    public static boolean comprobacionMail(String mail){
+        boolean comprueba;
+        if(mail.matches("[-\\w\\.]+@\\w+\\.\\w+")){
+            comprueba = true;
+        }else{
+            comprueba = false;
         }
-        return false;
-        
+        return comprueba;
     }
 }
-
 
 
 
