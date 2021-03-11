@@ -19,7 +19,7 @@ public class Opinion {
     public Opinion() {
 
     }
-    //holanayra
+    //holanayra nuevo coment 11/03
     public Opinion(ClassPuntuacion puntuacion, String comentario) {
         this.puntuacion = puntuacion;
         this.comentario = comentario;
