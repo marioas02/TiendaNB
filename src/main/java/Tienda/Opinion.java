@@ -20,7 +20,7 @@ public class Opinion {
         votoPositivo=0;
         votoNegativo=0;
     }
-    //holanayra nuevo coment 11/03
+    //Que haces leyendo esto
     public Opinion(Usuario user, ClassPuntuacion puntos, String comentario) {
         this.user = user;
         this.puntuacion = puntos;
