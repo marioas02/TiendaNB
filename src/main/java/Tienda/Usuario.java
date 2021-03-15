@@ -50,11 +50,7 @@ public class Usuario {
     }
     
     public static boolean comprobacionNombre(String nombre){
-        if(nombre.length()>=6){
-            return true;
-        }else{
-            return false;
-        }
+        return nombre.length()>=6;
     }
     public static boolean comprobacionPassword(String password){
         boolean comprueba;
@@ -72,11 +68,7 @@ public class Usuario {
     
     public static boolean comprobacionMail(String mail){
         boolean comprueba;
-        if(mail.matches("[-\\w\\.]+@\\w+\\.\\w+")){
-            comprueba = true;
-        }else{
-            comprueba = false;
-        }
+        comprueba = mail.matches("[-\\w\\.]+@\\w+\\.\\w+");
         return comprueba;
     }
 }

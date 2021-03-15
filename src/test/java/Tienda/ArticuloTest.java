@@ -17,33 +17,17 @@ public class ArticuloTest {
     public ArticuloTest() {
     }
 
-    /**
-     * Test of toString method, of class Articulo.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Articulo instance = new Articulo();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+    
     /**
      * Test of disponible method, of class Articulo.
      */
     @Test
     public void testDisponible() {
-        System.out.println("disponible");
-        int cantidad = 0;
-        Articulo instance = new Articulo();
-        boolean expResult = false;
+        int cantidad = 10;
+        Articulo instance = new Articulo("0001", "Monitor", 200.00F, 10);
+        boolean expResult = true;
         boolean result = instance.disponible(cantidad);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -51,27 +35,9 @@ public class ArticuloTest {
      */
     @Test
     public void testAjustarStock() {
-        System.out.println("ajustarStock");
-        int cantidad = 0;
-        Articulo instance = new Articulo();
+        int cantidad = 20;
+        Articulo instance = new Articulo("0001", "Monitor", 200.00F, 80);
         instance.ajustarStock(cantidad);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of equals method, of class Articulo.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Object o = null;
-        Articulo instance = new Articulo();
-        boolean expResult = false;
-        boolean result = instance.equals(o);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
+        assertEquals(100, instance.getStock());
+    }    
 }

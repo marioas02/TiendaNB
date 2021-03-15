@@ -10,29 +10,46 @@ package Tienda;
  * @author MarioAguirre
  */
 public class Opinion {
-
+    private Usuario user;
     private ClassPuntuacion puntuacion;
     private String comentario;
-    private int votopositivo;
-    private int votonegativo;
+    private int votoPositivo;
+    private int votoNegativo;
 
     public Opinion() {
-
+        votoPositivo=0;
+        votoNegativo=0;
     }
     //holanayra nuevo coment 11/03
-    public Opinion(ClassPuntuacion puntuacion, String comentario) {
-        this.puntuacion = puntuacion;
+    public Opinion(Usuario user, ClassPuntuacion puntos, String comentario) {
+        this.user = user;
+        this.puntuacion = puntos;
         this.comentario = comentario;
-        this.votopositivo = 0;
-        this.votonegativo = 0;
+        this.votoPositivo = 0;
+        this.votoNegativo = 0;
     }
 
-    public int darVotoPositivo(int votopositivo) {
-        return votopositivo++;
+    
+    
+    public void votoPositivo(int votoPositivo) {
+        this.votoPositivo++;
     }
 
-    public int darVotoNegativo(int votopositivo) {
-        return votopositivo--;
+    public void votoNegativo(int votoNegativo) {
+        this.votoNegativo++;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Usuario = ").append(user);
+        sb.append("\nPuntuacion = ").append(puntuacion);
+        sb.append("\nComentarios = ").append(comentario);
+        sb.append("\nPositivos = ").append(votoPositivo);
+        sb.append("\nNegativos = ").append(votoNegativo);
+        sb.append("\n").append(user);
+        return sb.toString();        
+    }
+
+    
 }

@@ -5,6 +5,8 @@
  */
 package Tienda;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author MarioAguirre
@@ -18,12 +20,13 @@ public class Articulo {
     private String nombre;
     private float precio;
     private int stock;
+    private ArrayList<Opinion> opinion;
 
     /**
      * Constructor vacio
      */
     public Articulo() {
-
+        opinion = new ArrayList<Opinion>();
     }
 
     /**
@@ -39,6 +42,7 @@ public class Articulo {
         setNombre(nombre);
         setPrecio(precio);
         setStock(stock);
+        opinion = new ArrayList<Opinion>();
     }
 
     public String getCodigo() {
@@ -105,4 +109,40 @@ public class Articulo {
             }
         }
     }
+    
+    public void addOpinion(Opinion op){
+        opinion.add(op);
+    }
+    
+    public String showOpinion(){
+        StringBuilder sb = new StringBuilder("");
+        for(Opinion o: opinion){
+            sb.append("\n").append(o);
+        }
+        /*for (int i = 0; i < opinion.size(); i++) {
+            opiniones.append(opinion.get(i).toString());
+            opiniones.append("\n");
+        }*/
+        return sb.toString();
+    }
+    
+    public float mediaOpiniones(){
+        int contador = 0;
+        for (int i = 0; i < opinion.size(); i++) {
+            if(opinion.equals(ClassPuntuacion.Mal)){
+                contador = contador + 0;
+            }
+            if(opinion.equals(ClassPuntuacion.Regular)){
+                contador = contador + 1;
+            }
+            if(opinion.equals(ClassPuntuacion.Bien)){
+                contador = contador + 2;
+            }
+            if(opinion.equals(ClassPuntuacion.Perfecto)){
+                contador = contador + 3;
+            }
+        }
+        return 0;
+    }
 }
+ 
