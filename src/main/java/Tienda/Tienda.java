@@ -56,7 +56,7 @@ public class Tienda {
                     confirmarCarrito(catalogo, cesta, ScannerString, ScannerInt);
                     break;
                 case 4: 
-//                    crearUsuario()
+                    crearUsuario(user, cadenas);
                     break;
                 case 5:
 //                    darOpinion();
@@ -79,7 +79,8 @@ public class Tienda {
                 "Pulsa:\n\t1: Alta Artículo."
                 + "\n\t2: Comprar Artículo."
                 + "\n\t3: Confirmar Carrtio."
-                + "\n\t4: Confirmar Carrtio."
+                + "\n\t4: Crear Usuario."
+                + "\n\t5. Dar opinion de articulo"
                 + "\n\t0: Salir.");
         System.out.printf("Escribe un número del menú: ");
         opcion = ScannerInt.nextInt();
@@ -88,16 +89,19 @@ public class Tienda {
     }
 
     private static void inicializarCatalogo(ArrayList<Articulo> c) {
-        c.add(new Articulo("0001", "Monitor", 200.00F, 10));
-        c.add(new Articulo("0002", "Teclado", 10.00F, 100));
-        c.add(new Articulo("0003", "RJ45 2m", 4.50F, 50));
-        c.add(new Articulo("0004", "Ratón", 20.00F, 15));
+//        c.add(new Articulo("0001", "Monitor", 200.00F, 10));
+//        c.add(new Articulo("0002", "Teclado", 10.00F, 100));
+//        c.add(new Articulo("0003", "RJ45 2m", 4.50F, 50));
+//        c.add(new Articulo("0004", "Ratón", 20.00F, 15));
         c.add(new Ropa("Rojo", 10, "0005", "Jersey", 25.50F, 100));
         c.add(new Electrodomestico("Hogar", ClaseE.A, "0006", "Lavadora", 526.89F, 10));
         c.add(new Microondas("MIELE", "ML-012", 140,"Hogar", ClaseE.B, "0007", "Microondas", 89.01F, 15));
     }
 
     private static void addArticuloCatalogo(ArrayList<Articulo> c, Scanner ScannerString, Scanner ScannerInt) {
+        System.out.println("Introduce la gama de el Electrodomestico: ");
+        String gama = ScannerString.nextLine();
+        System.out.println("Introduce la ClaseEnergitica del Electrodomesticos: ");
         System.out.println("Introduce el código del nuevo Artículo: ");
         String codigo = ScannerString.nextLine();
         System.out.println("Introduce el nombre del nuevo Artículo: ");
@@ -107,7 +111,7 @@ public class Tienda {
         System.out.println("Introduce el stock del nuevo Artículo: ");
         int stock = ScannerInt.nextInt();
 
-        c.add(new Articulo(codigo, nombre, precio, stock));
+        c.add(new Electrodomestico(gama, clasificacionEnergetica, codigo, nombre, precio, stock));
     }
 
     private static void mostrarCatalogo(ArrayList<Articulo> c) {
@@ -218,6 +222,30 @@ public class Tienda {
             modificarStockCatalogo(c, carro);
         }
         System.out.println(carro.mostrarCarrito());
+
+    }
+    
+    private static void crearUsuario(Usuario us, Scanner sn) {
+        String nombre, email, pass;
+        do {
+            System.out.println("Dame un nombre de usuario: ");
+            nombre = sn.nextLine();
+        } while (Usuario.comprobacionNombre(nombre) == false);
+        us.setNombre(nombre);
+
+        do {
+            System.out.println("Dame un email: ");
+            email = sn.nextLine();
+        } while (Usuario.comprobacionPassword(email) == false);
+        us.setMail(email);
+
+        do {
+            System.out.println("Dame un password: ");
+            pass = sn.nextLine();
+        } while (Usuario.comprobacionMail(pass) == false);
+        us.setPassword(pass);
+
+        System.out.println(us);
 
     }
     

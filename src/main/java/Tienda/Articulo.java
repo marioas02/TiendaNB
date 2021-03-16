@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author MarioAguirre
  */
-public class Articulo {
+public abstract class Articulo {
 
     /**
      * Atributos de nuestra clase privada.

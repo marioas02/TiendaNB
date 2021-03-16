@@ -17,27 +17,27 @@ public class ArticuloTest {
     public ArticuloTest() {
     }
 
-    
-    /**
-     * Test of disponible method, of class Articulo.
-     */
-    @Test
-    public void testDisponible() {
-        int cantidad = 10;
-        Articulo instance = new Articulo("0001", "Monitor", 200.00F, 10);
-        boolean expResult = true;
-        boolean result = instance.disponible(cantidad);
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of ajustarStock method, of class Articulo.
-     */
-    @Test
-    public void testAjustarStock() {
-        int cantidad = 20;
-        Articulo instance = new Articulo("0001", "Monitor", 200.00F, 80);
-        instance.ajustarStock(cantidad);
-        assertEquals(100, instance.getStock());
-    }    
+//    
+//    /**
+//     * Test of disponible method, of class Articulo.
+//     */
+//    @Test
+//    public void testDisponible() {
+//        int cantidad = 10;
+//        Articulo instance = new Articulo("0001", "Monitor", 200.00F, 10);
+//        boolean expResult = true;
+//        boolean result = instance.disponible(cantidad);
+//        assertEquals(expResult, result);
+//    }
+//
+//    /**
+//     * Test of ajustarStock method, of class Articulo.
+//     */
+//    @Test
+//    public void testAjustarStock() {
+//        int cantidad = 20;
+//        Articulo instance = new Articulo("0001", "Monitor", 200.00F, 80);
+//        instance.ajustarStock(cantidad);
+//        assertEquals(100, instance.getStock());
+//    }  
 }
