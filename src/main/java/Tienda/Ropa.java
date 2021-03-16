@@ -36,6 +36,10 @@ public class Ropa extends Articulo {
         this.talla = talla;
     }
 
+    /**
+     *
+     * @return toString Color y talla.
+     */
     @Override
     public String toString() {
         return super.toString() + "Color: " + getColor() + "\nTalla: " + getTalla() + "\n";

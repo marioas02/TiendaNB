@@ -13,6 +13,9 @@ import java.util.ArrayList;
  */
 public class Carrito {
 
+    /**
+     * Atributos.
+     */
     ArrayList<ArticuloCarrito> pedido;
     float total;
     boolean estado;
@@ -20,12 +23,19 @@ public class Carrito {
     public static boolean CONFIRMADO = true;
     public static boolean PENDIENTE = false;
 
+    /**
+     * Constructor.
+     */
     public Carrito() {
         pedido = new ArrayList<ArticuloCarrito>();
         total = 0;
         estado = PENDIENTE;
     }
 
+    /**
+     * 
+     * @return el total de lo que cuesta mi carrito.
+     */
     private float calculaTotal() {
         float acumulado = 0;
         for (ArticuloCarrito ac : this.pedido) {
@@ -34,6 +44,11 @@ public class Carrito {
         return acumulado;
     }
 
+    /**
+     *
+     * @param articulo
+     * @param cantidad
+     */
     public void addArticulo(Articulo articulo, int cantidad) {
         boolean found = false;
         for (ArticuloCarrito ac : pedido) {
@@ -49,6 +64,10 @@ public class Carrito {
         this.total = calculaTotal();
     }
 
+    /**
+     *
+     * @return toString para motrar si el Carrito esta confirmado o pendiente.
+     */
     public String mostrarCarrito() {
         StringBuilder sb = new StringBuilder();
         sb.append("**********CARRITO**********\n");
@@ -65,6 +84,11 @@ public class Carrito {
         return sb.toString();
     }
 
+    /**
+     *
+     * @return estado
+     * para cambiar de pendiente a confirmado.
+     */
     public boolean cambiarEstado() {
         if (estado) {
             return estado = false;

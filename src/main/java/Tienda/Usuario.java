@@ -48,33 +48,28 @@ public class Usuario {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    
-    public static boolean comprobacionNombre(String nombre){
-        return nombre.length()>=6;
+
+    public static boolean comprobacionNombre(String nombre) {
+        return nombre.length() >= 6;
     }
-    public static boolean comprobacionPassword(String password){
+
+    public static boolean comprobacionPassword(String password) {
         boolean comprueba;
-        if(password.length()>=8){
-            if(password.matches(".*[A-Z].*")){
+        if (password.length() >= 8) {
+            if (password.matches(".*[A-Z].*")) {
                 comprueba = true;
-            }else{
+            } else {
                 comprueba = false;
             }
-        }else{
+        } else {
             comprueba = false;
         }
         return comprueba;
     }
-    
-    public static boolean comprobacionMail(String mail){
+
+    public static boolean comprobacionMail(String mail) {
         boolean comprueba;
         comprueba = mail.matches("[-\\w\\.]+@\\w+\\.\\w+");
         return comprueba;
     }
 }
-
-
-
-
-
-

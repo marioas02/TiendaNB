@@ -55,7 +55,7 @@ public class Tienda {
                 case 3:
                     confirmarCarrito(catalogo, cesta, ScannerString, ScannerInt);
                     break;
-                case 4: 
+                case 4:
                     crearUsuario(user, cadenas);
                     break;
                 case 5:
@@ -95,7 +95,7 @@ public class Tienda {
 //        c.add(new Articulo("0004", "Ratón", 20.00F, 15));
         c.add(new Ropa("Rojo", 10, "0005", "Jersey", 25.50F, 100));
         c.add(new Electrodomestico("Hogar", ClaseE.A, "0006", "Lavadora", 526.89F, 10));
-        c.add(new Microondas("MIELE", "ML-012", 140,"Hogar", ClaseE.B, "0007", "Microondas", 89.01F, 15));
+        c.add(new Microondas("MIELE", "ML-012", 140, "Hogar", ClaseE.B, "0007", "Microondas", 89.01F, 15));
     }
 
     private static void addArticuloCatalogo(ArrayList<Articulo> c, Scanner ScannerString, Scanner ScannerInt) {
@@ -224,7 +224,7 @@ public class Tienda {
         System.out.println(carro.mostrarCarrito());
 
     }
-    
+
     private static void crearUsuario(Usuario us, Scanner sn) {
         String nombre, email, pass;
         do {
@@ -248,8 +248,8 @@ public class Tienda {
         System.out.println(us);
 
     }
-    
-    private static void darOpinion(Usuario us, ArrayList<Articulo> c, Scanner ScannerString, Scanner ScannerInt){
+
+    private static void darOpinion(Usuario us, ArrayList<Articulo> c, Scanner ScannerString, Scanner ScannerInt) {
         /*Mostrar catalogo de articulos
         * Pedir articulo de opinion
         * Buscar articulo por codigo
@@ -257,7 +257,7 @@ public class Tienda {
         * añadirla al listado del articulo
         * Mostrar articulo y sus opiniones.
         * En caso de no encontrarlo mostrar mensaje.
-        */
+         */
         int salircomprar = -1;
         mostrarCatalogo(c);
 
@@ -269,35 +269,35 @@ public class Tienda {
             crearOpinion(us, a, ScannerString, ScannerInt);
             System.out.println(a);
             System.out.println(a.showOpinion());
-            
+
         } else {
             System.out.println("Articulo no existe, elije otro.");
         }
         System.out.println("Pulsa 0: Si desea salir o confirmar.\nPulsa 1: Si desea seguir comprando.");
         salircomprar = ScannerInt.nextInt();
     }
-    
-    private static void crearOpinion(Usuario us, Articulo a, Scanner ScannerString, Scanner ScannerInt){
+
+    private static void crearOpinion(Usuario us, Articulo a, Scanner ScannerString, Scanner ScannerInt) {
         System.out.println("Valora del 1 al 5 siendo: /n/t1: MAL /n/t2: REGULAR /n/t3: BIEN /n/t4: PERFECTO: ");
         int puntos_aux = ScannerInt.nextInt();
         ClassPuntuacion puntos = ClassPuntuacion.Perfecto;
-        if(puntos_aux == 1){
+        if (puntos_aux == 1) {
             puntos = ClassPuntuacion.Mal;
         }
-        if(puntos_aux == 2){
+        if (puntos_aux == 2) {
             puntos = ClassPuntuacion.Regular;
         }
-        if(puntos_aux == 3){
+        if (puntos_aux == 3) {
             puntos = ClassPuntuacion.Bien;
         }
-        if(puntos_aux == 4){
+        if (puntos_aux == 4) {
             puntos = ClassPuntuacion.Perfecto;
         }
-        
+
         System.out.println("Escribe un comentario breve: ");
         String comment = ScannerString.nextLine();
-        
-        a.addOpinion(new Opinion (us, puntos, comment));
+
+        a.addOpinion(new Opinion(us, puntos, comment));
     }
 
 }

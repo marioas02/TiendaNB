@@ -16,11 +16,20 @@ public class Opinion {
     private int votoPositivo;
     private int votoNegativo;
 
+    /**
+     * Constructor vacío.
+     */
     public Opinion() {
         votoPositivo=0;
         votoNegativo=0;
     }
-    //Que haces leyendo esto
+
+    /**
+     *
+     * @param user
+     * @param puntos
+     * @param comentario
+     */
     public Opinion(Usuario user, ClassPuntuacion puntos, String comentario) {
         this.user = user;
         this.puntuacion = puntos;
@@ -29,16 +38,26 @@ public class Opinion {
         this.votoNegativo = 0;
     }
 
-    
-    
+    /**
+     *
+     * @param votoPositivo
+     */
     public void votoPositivo(int votoPositivo) {
         this.votoPositivo++;
     }
 
+    /**
+     *
+     * @param votoNegativo
+     */
     public void votoNegativo(int votoNegativo) {
         this.votoNegativo++;
     }
 
+    /**
+     *
+     * @return toString en el que te dice el Usuario, la Puntuación, Comentarios, total de votos negativos y positivos.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

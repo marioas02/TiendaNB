@@ -67,6 +67,11 @@ public class Electrodomestico extends Articulo {
         this.clasificacionEnergetica = clasificacionEnergetica;
     }
 
+    /**
+     * 
+     * @return toString
+     * Dice la gama del articulo, la clase electrodomestica.
+     */
     @Override
     public String toString() {
         return super.toString() + "Gama: " + getGama() + "\nClase Electrodomestica: " + getClasificacionEnergetica() + "\n";

@@ -24,7 +24,7 @@ public class ArticuloCarrito {
     /**
      * Constructor con parametros.
      *
-     * @param a
+     * @param articulo
      * @param cantidad
      */
     public ArticuloCarrito(Articulo articulo, int cantidad) {
@@ -32,6 +32,10 @@ public class ArticuloCarrito {
         this.cantidad = cantidad;
     }
 
+    /**
+     *
+     * @return toString.
+     */
     @Override
     public String toString() {
         return this.elemento + "x" + this.cantidad + "\n";

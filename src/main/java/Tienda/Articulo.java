@@ -44,39 +44,75 @@ public abstract class Articulo {
         setStock(stock);
         opinion = new ArrayList<Opinion>();
     }
-
+    
+    /**
+     * 
+     * @return codigo
+     */
     public String getCodigo() {
         return codigo;
     }
-
+    
+    /**
+     * 
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
     }
-
+    
+    /**
+     * 
+     * @return precio
+     */
     public float getPrecio() {
         return precio;
     }
-
+    
+    /**
+     * 
+     * @return stock
+     */
     public int getStock() {
         return stock;
     }
-
+    
+    /**
+     * 
+     * @param codigo 
+     */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-
+    
+    /**
+     * 
+     * @param nombre 
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
+    /**
+     * 
+     * @param precio 
+     */
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-
+    
+    /**
+     * 
+     * @param stock 
+     */
     public void setStock(int stock) {
         this.stock = stock;
     }
-
+    /**
+     * 
+     * @return Un String el cual te dice el Código del producto, el nombre, el precio
+     * el Stock y la media de las valorciones.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -84,15 +120,29 @@ public abstract class Articulo {
                 .append(this.precio).append("€\nStock: ").append(this.stock).append("\nMedia: ").append(this.mediaOpiniones()).append("\n");
         return sb.toString();
     }
-
+    
+    /**
+     * 
+     * @param cantidad
+     * @return la cantidad si es que hay en stock
+     */
     public boolean disponible(int cantidad) {
         return cantidad <= stock;
     }
-
+    
+    /**
+     * 
+     * @param cantidad 
+     */
     public void ajustarStock(int cantidad) {
         this.stock += cantidad;
     }
-
+    
+    /**
+     * 
+     * @param o
+     * @return 
+     */
     @Override
     public boolean equals(Object o) {
         if (o == null) {
@@ -110,10 +160,19 @@ public abstract class Articulo {
         }
     }
     
-    public void addOpinion(Opinion op){
+    /**
+     * 
+     * @param op 
+     * Añade una Opinion en el ArrayList de Opiniones.
+     */
+    public void addOpinion(Opinion op) {
         opinion.add(op);
     }
     
+    /**
+     * 
+     * @return String
+     */
     public String showOpinion(){
         StringBuilder sb = new StringBuilder("");
         for(Opinion o: opinion){
@@ -126,6 +185,10 @@ public abstract class Articulo {
         return sb.toString();
     }
     
+    /**
+     * 
+     * @return media de las valoraciones de Opiniones.
+     */
     private float mediaOpiniones(){
         int contador = 0;
         float media = 0;

@@ -15,12 +15,30 @@ public class Microondas extends Electrodomestico {
     private String modelo;
     private int potencia;
 
+    /**
+     *
+     * @param marca
+     * @param modelo
+     * @param potencia
+     */
     public Microondas(String marca, String modelo, int potencia) {
         this.marca = marca;
         this.modelo = modelo;
         this.potencia = potencia;
     }
 
+    /**
+     *
+     * @param marca
+     * @param modelo
+     * @param potencia
+     * @param gama
+     * @param clasificacionEnergetica
+     * @param codigo
+     * @param nombre
+     * @param precio
+     * @param stock
+     */
     public Microondas(String marca, String modelo, int potencia, String gama, ClaseE clasificacionEnergetica, String codigo, String nombre, float precio, int stock) {
         super(gama, clasificacionEnergetica, codigo, nombre, precio, stock);
         this.marca = marca;
@@ -70,6 +88,10 @@ public class Microondas extends Electrodomestico {
         this.potencia = potencia;
     }
 
+    /**
+     *
+     * @return toString en el que te dice la Marca, Modelo y Potencia.
+     */
     @Override
     public String toString() {
         return super.toString() + "Marca: " + getMarca() + "\nModelo: " + getModelo() + "\nPotencia: " + getPotencia() + " W\n";
