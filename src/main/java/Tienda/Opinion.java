@@ -43,12 +43,19 @@ public class Opinion {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Usuario = ").append(user);
-        sb.append("\nPuntuacion = ").append(puntuacion);
+        sb.append("\nPuntuacion = ").append(getPuntuacion());
         sb.append("\nComentarios = ").append(comentario);
         sb.append("\nPositivos = ").append(votoPositivo);
         sb.append("\nNegativos = ").append(votoNegativo);
         sb.append("\n").append(user);
         return sb.toString();        
+    }
+
+    /**
+     * @return the puntuacion
+     */
+    public ClassPuntuacion getPuntuacion() {
+        return puntuacion;
     }
 
     

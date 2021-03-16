@@ -81,7 +81,7 @@ public class Articulo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Codigo: ").append(this.codigo).append("\nNombre: ").append(this.nombre).append("\nPrecio: ")
-                .append(this.precio).append("€\nStock: ").append(this.stock).append("\n");
+                .append(this.precio).append("€\nStock: ").append(this.stock).append("\nMedia: ").append(this.mediaOpiniones()).append("\n");
         return sb.toString();
     }
 
@@ -126,21 +126,29 @@ public class Articulo {
         return sb.toString();
     }
     
-    public float mediaOpiniones(){
+    private float mediaOpiniones(){
         int contador = 0;
-        for (int i = 0; i < opinion.size(); i++) {
-            if(opinion.equals(ClassPuntuacion.Mal)){
-                contador = contador + 0;
+        float media = 0;
+        for (Opinion o: opinion) {
+            if(o.getPuntuacion()==ClassPuntuacion.Mal){
+                media = media + 1;
+                contador++;
             }
-            if(opinion.equals(ClassPuntuacion.Regular)){
-                contador = contador + 1;
+            if(o.getPuntuacion()==ClassPuntuacion.Regular){
+                media = media + 2;
+                contador++;
             }
-            if(opinion.equals(ClassPuntuacion.Bien)){
-                contador = contador + 2;
+            if(o.getPuntuacion()==ClassPuntuacion.Bien){
+                media = media + 3;
+                contador++;
             }
-            if(opinion.equals(ClassPuntuacion.Perfecto)){
-                contador = contador + 3;
+            if(o.getPuntuacion()==ClassPuntuacion.Perfecto){
+                media = media + 4;
+                contador++;
             }
+        }
+        if(opinion.size()>0){
+            return media/contador;
         }
         return 0;
     }

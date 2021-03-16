@@ -55,7 +55,12 @@ public class Tienda {
                 case 3:
                     confirmarCarrito(catalogo, cesta, ScannerString, ScannerInt);
                     break;
-
+                case 4: 
+//                    crearUsuario()
+                    break;
+                case 5:
+//                    darOpinion();
+                    break;
                 default:
                     System.out.println("Opcion icorrecta, lea atentamente.");
                     break;
@@ -74,6 +79,7 @@ public class Tienda {
                 "Pulsa:\n\t1: Alta Artículo."
                 + "\n\t2: Comprar Artículo."
                 + "\n\t3: Confirmar Carrtio."
+                + "\n\t4: Confirmar Carrtio."
                 + "\n\t0: Salir.");
         System.out.printf("Escribe un número del menú: ");
         opcion = ScannerInt.nextInt();
@@ -213,6 +219,57 @@ public class Tienda {
         }
         System.out.println(carro.mostrarCarrito());
 
+    }
+    
+    private static void darOpinion(Usuario us, ArrayList<Articulo> c, Scanner ScannerString, Scanner ScannerInt){
+        /*Mostrar catalogo de articulos
+        * Pedir articulo de opinion
+        * Buscar articulo por codigo
+        * En caso de encontrarlo, pedir datos de la opinion y 
+        * añadirla al listado del articulo
+        * Mostrar articulo y sus opiniones.
+        * En caso de no encontrarlo mostrar mensaje.
+        */
+        int salircomprar = -1;
+        mostrarCatalogo(c);
+
+        System.out.println("Introduzca el código del producto que quiere comprar: ");
+        String codigo = ScannerString.nextLine();
+
+        Articulo a = buscarArticuloPorCodigo(c, codigo);
+        if (a != null) {
+            crearOpinion(us, a, ScannerString, ScannerInt);
+            System.out.println(a);
+            System.out.println(a.showOpinion());
+            
+        } else {
+            System.out.println("Articulo no existe, elije otro.");
+        }
+        System.out.println("Pulsa 0: Si desea salir o confirmar.\nPulsa 1: Si desea seguir comprando.");
+        salircomprar = ScannerInt.nextInt();
+    }
+    
+    private static void crearOpinion(Usuario us, Articulo a, Scanner ScannerString, Scanner ScannerInt){
+        System.out.println("Valora del 1 al 5 siendo: /n/t1: MAL /n/t2: REGULAR /n/t3: BIEN /n/t4: PERFECTO: ");
+        int puntos_aux = ScannerInt.nextInt();
+        ClassPuntuacion puntos = ClassPuntuacion.Perfecto;
+        if(puntos_aux == 1){
+            puntos = ClassPuntuacion.Mal;
+        }
+        if(puntos_aux == 2){
+            puntos = ClassPuntuacion.Regular;
+        }
+        if(puntos_aux == 3){
+            puntos = ClassPuntuacion.Bien;
+        }
+        if(puntos_aux == 4){
+            puntos = ClassPuntuacion.Perfecto;
+        }
+        
+        System.out.println("Escribe un comentario breve: ");
+        String comment = ScannerString.nextLine();
+        
+        a.addOpinion(new Opinion (us, puntos, comment));
     }
 
 }
