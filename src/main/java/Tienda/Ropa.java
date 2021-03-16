@@ -15,14 +15,14 @@ public class Ropa extends Articulo {
     private int talla;
 
     /**
-     *
+     * Contructor vacío.
      */
     public Ropa() {
 
     }
 
     /**
-     *
+     * Contructo con parametros.
      * @param color
      * @param talla
      * @param codigo

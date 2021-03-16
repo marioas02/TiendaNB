@@ -136,7 +136,13 @@ public class Tienda {
         }
         return a;
     }
-
+    /**
+     * Metodo que compra un Articulo y lo añade al Carrito.
+     * @param c
+     * @param carro
+     * @param ScannerString
+     * @param ScannerInt 
+     */
     private static void comprar(ArrayList<Articulo> c, Carrito carro, Scanner ScannerString, Scanner ScannerInt) {
         /*
 		 * Mostrar el catalogo
@@ -273,8 +279,6 @@ public class Tienda {
         } else {
             System.out.println("Articulo no existe, elije otro.");
         }
-        System.out.println("Pulsa 0: Si desea salir o confirmar.\nPulsa 1: Si desea seguir comprando.");
-        salircomprar = ScannerInt.nextInt();
     }
 
     private static void crearOpinion(Usuario us, Articulo a, Scanner ScannerString, Scanner ScannerInt) {
