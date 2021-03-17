@@ -27,6 +27,8 @@ public class Tienda {
         Scanner ScannerInt = new Scanner(System.in);
         Scanner ScannerString = new Scanner(System.in);
 
+        
+        Usuario user = new Usuario();
         int menuopcion = 0;
 
         ArrayList<Articulo> catalogo = new ArrayList<Articulo>();
@@ -56,10 +58,10 @@ public class Tienda {
                     confirmarCarrito(catalogo, cesta, ScannerString, ScannerInt);
                     break;
                 case 4:
-                    crearUsuario(user, cadenas);
+                    crearUsuario(user, ScannerString);
                     break;
                 case 5:
-//                    darOpinion();
+                    darOpinion(user, catalogo, ScannerString, ScannerInt);
                     break;
                 default:
                     System.out.println("Opcion icorrecta, lea atentamente.");
@@ -102,6 +104,7 @@ public class Tienda {
         System.out.println("Introduce la gama de el Electrodomestico: ");
         String gama = ScannerString.nextLine();
         System.out.println("Introduce la ClaseEnergitica del Electrodomesticos: ");
+//        ClaseE clasificacionEnergetica = ScannerString.nextLine();
         System.out.println("Introduce el código del nuevo Artículo: ");
         String codigo = ScannerString.nextLine();
         System.out.println("Introduce el nombre del nuevo Artículo: ");
@@ -111,7 +114,7 @@ public class Tienda {
         System.out.println("Introduce el stock del nuevo Artículo: ");
         int stock = ScannerInt.nextInt();
 
-        c.add(new Electrodomestico(gama, clasificacionEnergetica, codigo, nombre, precio, stock));
+//        c.add(new Electrodomestico(gama, clasificacionEnergetica, codigo, nombre, precio, stock));
     }
 
     private static void mostrarCatalogo(ArrayList<Articulo> c) {

@@ -46,6 +46,12 @@ public abstract class Articulo {
     }
     
     /**
+     * Método abstracto a implementar por clases.
+     * @param codigopromo 
+     */
+    public abstract void applyPromo (String codigopromo);
+    
+    /**
      * 
      * @return codigo
      */

@@ -72,5 +72,13 @@ public class Ropa extends Articulo {
     public void setTalla(int talla) {
         this.talla = talla;
     }
-
+    
+    @Override
+    public void applyPromo (String codigopromo){
+        //Si el codigo es ROPAPROMO se aplica 20%
+        if(codigopromo.equals("ROPAPROMO")){
+            this.setPrecio(((float)this.getPrecio()*0.8));
+        }
+    }
+    
 }
