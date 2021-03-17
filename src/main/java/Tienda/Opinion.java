@@ -5,11 +5,13 @@
  */
 package Tienda;
 
+import javax.lang.model.SourceVersion;
+
 /**
  *
  * @author MarioAguirre
  */
-public class Opinion {
+public class Opinion implements Comparable<Opinion>{
     private Usuario user;
     private ClassPuntuacion puntuacion;
     private String comentario;
@@ -77,5 +79,44 @@ public class Opinion {
         return puntuacion;
     }
 
-    
+    @Override
+    public int compareTo(Opinion o) {
+
+        int primerord = 0;
+        int segunord = 0;
+        if(this.puntuacion.equals(ClassPuntuacion.Mal)){
+            primerord = 1;
+        }
+        if (this.puntuacion.equals(ClassPuntuacion.Regular)) {
+            primerord = 2;
+        }
+        if (this.puntuacion.equals(ClassPuntuacion.Bien)) {
+            primerord = 3;
+        }
+        if (this.puntuacion.equals(ClassPuntuacion.Perfecto)) {
+            primerord = 4;
+        }
+        if (o.puntuacion.equals(ClassPuntuacion.Mal)) {
+            segunord = 1;
+        }
+        if (o.puntuacion.equals(ClassPuntuacion.Regular)) {
+            segunord = 2;
+        }
+        if (o.puntuacion.equals(ClassPuntuacion.Bien)) {
+            segunord = 3;
+        }
+        if (o.puntuacion.equals(ClassPuntuacion.Perfecto)) {
+            segunord = 4;
+        }
+        
+        //Comparamos y retornamos las opiniones.
+        if(this.puntuacion.equals(o.puntuacion)){
+            return 0;
+        }
+        if(primerord < segunord){
+            return 1;
+        }else{
+            return -1;
+        }
+    }
 }

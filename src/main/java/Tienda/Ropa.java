@@ -9,10 +9,10 @@ package Tienda;
  * Clase que hereda Articulo que nos sirve para definir articulos de tipo ropa de los que nos interesa tambien el color y la talla.
  * @author MarioAguirre
  */
-public class Ropa extends Articulo {
+public final class Ropa extends Articulo {
 
     private String color;
-    private int talla;
+    private TallaSML  talla;
 
     /**
      * Contructor vacío.
@@ -30,7 +30,7 @@ public class Ropa extends Articulo {
      * @param precio
      * @param stock
      */
-    public Ropa(String color, int talla, String codigo, String nombre, float precio, int stock) {
+    public Ropa(String color, TallaSML talla, String codigo, String nombre, float precio, int stock) {
         super(codigo, nombre, precio, stock);
         this.color = color;
         this.talla = talla;
@@ -62,14 +62,14 @@ public class Ropa extends Articulo {
     /**
      * @return the talla
      */
-    public int getTalla() {
+    public TallaSML getTalla() {
         return talla;
     }
 
     /**
      * @param talla the talla to set
      */
-    public void setTalla(int talla) {
+    public void setTalla(TallaSML talla) {
         this.talla = talla;
     }
     
