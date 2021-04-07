@@ -9,6 +9,11 @@ package Tienda;
  *
  * @author MarioAguirre
  */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -63,6 +68,11 @@ public class Tienda {
                 case 5:
                     darOpinion(user, catalogo, ScannerString, ScannerInt);
                     break;
+                case 6:
+                    loadArticulosFromFile();
+                    break;
+                case 7:
+                    
                 default:
                     System.out.println("Opcion icorrecta, lea atentamente.");
                     break;
@@ -83,6 +93,8 @@ public class Tienda {
                 + "\n\t3: Confirmar Carrtio."
                 + "\n\t4: Crear Usuario."
                 + "\n\t5. Dar opinion de articulo"
+                + "\n\t6. Leer fichero"
+                + "\n\t7. Guardar fichero"
                 + "\n\t0: Salir.");
         System.out.printf("Escribe un número del menú: ");
         opcion = ScannerInt.nextInt();
@@ -95,7 +107,7 @@ public class Tienda {
 //        c.add(new Articulo("0002", "Teclado", 10.00F, 100));
 //        c.add(new Articulo("0003", "RJ45 2m", 4.50F, 50));
 //        c.add(new Articulo("0004", "Ratón", 20.00F, 15));
-        c.add(new Ropa("Rojo", TallaSML.M, "0005", "Jersey", 25.50F, 100));
+//        c.add(new Ropa("Rojo", TallaSML.M, "0005", "Jersey", 25.50F, 100));
         c.add(new Electrodomestico("Hogar", ClaseE.A, "0006", "Lavadora", 526.89F, 10));
         c.add(new Microondas("MIELE", "ML-012", 140, "Hogar", ClaseE.B, "0007", "Microondas", 89.01F, 15));
     }
@@ -319,5 +331,32 @@ public class Tienda {
 
         a.addOpinion(new Opinion(us, puntos, comment));
     }
+    
+    public static void loadArticulosFromFile() {
+        File fichero = null;
+        FileReader lector = null;
+        BufferedReader buffer = null;
 
+        try {
+            fichero = new File("articulos.txt");
+            lector = new FileReader(fichero);
+            buffer = new BufferedReader(lector);
+            String linea = null;
+            while ((linea = buffer.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            if (buffer != null)
+                try {
+                buffer.close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+    }
 }

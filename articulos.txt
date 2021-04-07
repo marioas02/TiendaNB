@@ -1,0 +1,2 @@
+Hogar, A, 0006, Lavadora, 526.89F, 10
+MIELE, ML-012, 140, Hogar, B, 0007, Microondas, 89.01F, 15
