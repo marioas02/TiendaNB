@@ -88,4 +88,13 @@ public class Electrodomestico extends Articulo {
             this.setPrecio(((float)this.getPrecio()*0.9));
         }
     }
+    
+    @Override
+    public String toStringFile(){
+        return gama + ", " + clasificacionEnergetica 
+                + ", " + super.getCodigo() 
+                + ", " + super.getNombre() 
+                + ", " + super.getPrecio() 
+                + ", " + super.getStock();
+    }
 }

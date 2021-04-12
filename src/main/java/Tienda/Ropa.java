@@ -50,7 +50,15 @@ public final class Ropa extends Articulo implements Reciclable {
     public String toString() {
         return super.toString() + "Color: " + getColor() + "\nTalla: " + getTalla() + "\n";
     }
-
+    
+    
+    @Override
+    public String toStringFile(){
+        return color + ", " + talla + ", " + reciclada + ", " + super.getCodigo() 
+                + ", " + super.getNombre() 
+                + ", " + super.getPrecio() 
+                + ", " + super.getStock();
+    }
     /**
      * @return the color
      */

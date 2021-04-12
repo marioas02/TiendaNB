@@ -13,7 +13,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -72,6 +74,8 @@ public class Tienda {
                     loadArticulosFromFile();
                     break;
                 case 7:
+                    saveArticleToFile();
+                    break;
                     
                 default:
                     System.out.println("Opcion icorrecta, lea atentamente.");
@@ -88,14 +92,14 @@ public class Tienda {
         int opcion = 0;
         System.out.println("");
         System.out.println(
-                "Pulsa:\n\t1: Alta Artículo."
-                + "\n\t2: Comprar Artículo."
-                + "\n\t3: Confirmar Carrtio."
-                + "\n\t4: Crear Usuario."
+                "Pulsa:\n\t1. Alta Artículo."
+                + "\n\t2. Comprar Artículo."
+                + "\n\t3. Confirmar Carrtio."
+                + "\n\t4. Crear Usuario."
                 + "\n\t5. Dar opinion de articulo"
                 + "\n\t6. Leer fichero"
                 + "\n\t7. Guardar fichero"
-                + "\n\t0: Salir.");
+                + "\n\t0. Salir.");
         System.out.printf("Escribe un número del menú: ");
         opcion = ScannerInt.nextInt();
         System.out.println("");
@@ -342,8 +346,12 @@ public class Tienda {
             lector = new FileReader(fichero);
             buffer = new BufferedReader(lector);
             String linea = null;
+            String[] nuevaRopa;
             while ((linea = buffer.readLine()) != null) {
-                System.out.println(linea);
+                nuevaRopa = linea.split(",");
+                //TODO cargar cada linea creando un objeto Ropa
+                //nuevaRopa[]
+     
             }
 
         } catch (FileNotFoundException fnfe) {
@@ -354,6 +362,30 @@ public class Tienda {
             if (buffer != null)
                 try {
                 buffer.close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+    }
+    
+    public static void saveArticleToFile(ArrayList<Articulo> c) {
+        FileWriter fichero = null;
+        PrintWriter escritor = null;
+
+        try {
+            fichero = new FileWriter("articulos2.txt");
+            escritor = new PrintWriter(fichero);
+            //TODO Recorrer el Array, y pintar en articulos2.txt
+            //escritor.println("");
+            for(int i=0; i>c.size(); i++){
+                escritor.println(c.get(i).toStringFile());
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            if (fichero != null)
+                try {
+                fichero.close();
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
