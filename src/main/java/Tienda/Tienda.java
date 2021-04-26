@@ -74,7 +74,7 @@ public class Tienda {
                     loadArticulosFromFile();
                     break;
                 case 7:
-                    saveArticleToFile();
+                    saveArticleToFile(catalogo);
                     break;
                     
                 default:
@@ -114,6 +114,7 @@ public class Tienda {
 //        c.add(new Ropa("Rojo", TallaSML.M, "0005", "Jersey", 25.50F, 100));
         c.add(new Electrodomestico("Hogar", ClaseE.A, "0006", "Lavadora", 526.89F, 10));
         c.add(new Microondas("MIELE", "ML-012", 140, "Hogar", ClaseE.B, "0007", "Microondas", 89.01F, 15));
+        c.add(new Electrodomestico("Hogar", ClaseE.B, "0008", "Horno", 112.19F, 7));
     }
 
     private static void addArticuloCatalogo(ArrayList<Articulo> c, Scanner ScannerString, Scanner ScannerInt) {
